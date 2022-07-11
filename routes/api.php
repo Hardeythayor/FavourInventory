@@ -43,7 +43,7 @@ Route::group([
     |--------------------------------------------------------------------------
     */
     Route::prefix('inventory')->group(function() {
-        Route::prefix('admin')->group(function() {
+        Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function() {
             Route::post('create', [InventoryController::class, 'store']);
             Route::get('list', [InventoryController::class, 'index']);
             Route::put('edit/{id}', [InventoryController::class, 'update']);
