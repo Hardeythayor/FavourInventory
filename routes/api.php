@@ -53,7 +53,6 @@ Route::group([
         Route::prefix('user')->group(function() {
             Route::get('list', [InventoryController::class, 'view_inventories']);
             Route::get('/{id}', [InventoryController::class, 'single_inventory']);
-            Route::delete('/{id}', [InventoryController::class, 'destroy']);
 
             Route::prefix('cart')->group(function() {
                 /// add to cart
